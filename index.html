@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Новости ИИ и Технологий — 2026-07-01</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg-page: #0d1117; --bg-card: #161b22; --bg-card-hover: #1c2128;
+    --text-primary: #e6edf3; --text-secondary: #8b949e; --text-link: #58a6ff;
+    --accent: #58a6ff; --accent-bg: rgba(88,166,255,0.12);
+    --green: #3fb950; --green-bg: rgba(63,185,80,0.12);
+    --orange: #d29922; --orange-bg: rgba(210,153,34,0.12);
+    --purple: #bc8cff; --red: #f85149;
+    --border: #30363d; --border-hover: #58a6ff;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-page); color: var(--text-primary); line-height: 1.6; min-height: 100vh; }
+  .header { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,0.85); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); padding: 14px 24px; }
+  .header-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: baseline; gap: 12px; }
+  .header h1 { font-size: 18px; font-weight: 600; }
+  .header .date { color: var(--text-secondary); font-size: 13px; font-family: 'JetBrains Mono', monospace; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  .section { margin-bottom: 36px; }
+  .section-header { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .section-title { font-size: 20px; font-weight: 600; }
+  .section-title .emoji { font-size: 24px; margin-right: 8px; }
+  .section-count { font-size: 11px; font-weight: 500; background: var(--accent-bg); color: var(--accent); padding: 2px 8px; border-radius: 12px; margin-left: auto; font-family: 'JetBrains Mono', monospace; }
+  .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card-grid.single-col { grid-template-columns: 1fr; }
+  .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; transition: background 0.15s, border-color 0.15s; display: flex; flex-direction: column; gap: 10px; }
+  .card:hover { background: var(--bg-card-hover); border-color: var(--border-hover); }
+  .card-model { border-left: 3px solid var(--purple); }
+  .card-release { border-left: 3px solid var(--green); }
+  .card-skill { padding: 14px 18px; gap: 8px; border-left: 3px solid var(--accent); }
+  .card-trending { flex-direction: row; gap: 16px; align-items: flex-start; }
+  .card-number { font-size: 24px; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; min-width: 36px; line-height: 1; padding-top: 2px; }
+  .card-title { font-weight: 600; font-size: 15px; line-height: 1.4; }
+  .card-title a { color: var(--text-primary); text-decoration: none; transition: color 0.15s; }
+  .card-title a:hover { color: var(--text-link); }
+  .card-desc { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
+  .card-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; color: var(--text-secondary); }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 500; line-height: 1.5; font-family: 'JetBrains Mono', monospace; }
+  .tag-neutral { background: rgba(139,148,158,0.15); color: var(--text-secondary); }
+  .tag-green { background: var(--green-bg); color: var(--green); }
+  .tag-orange { background: var(--orange-bg); color: var(--orange); }
+  .tag-blue { background: var(--accent-bg); color: var(--accent); }
+  .tag-purple { background: rgba(188,140,255,0.15); color: var(--purple); }
+  .card-comment { padding: 10px 14px; background: rgba(88,166,255,0.08); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text-primary); line-height: 1.5; }
+  .changelog { margin-top: 8px; padding: 12px 14px; background: rgba(139,148,158,0.06); border-radius: 8px; font-size: 13px; line-height: 1.6; color: var(--text-secondary); max-height: 150px; overflow-y: auto; }
+  .changelog ul { margin: 0; padding-left: 18px; }
+  .changelog li { margin-bottom: 3px; }
+  .changelog li:last-child { margin-bottom: 0; }
+  .changelog-comment { margin-top: 6px; padding: 8px 12px; background: rgba(63,185,80,0.08); border-left: 3px solid var(--green); border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text-primary); line-height: 1.5; }
+  .stat { display: inline-flex; align-items: center; gap: 3px; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+  .footer { text-align: center; padding: 24px; color: var(--text-secondary); font-size: 12px; font-family: 'JetBrains Mono', monospace; border-top: 1px solid var(--border); margin-top: 48px; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg-page); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  @media (max-width: 900px) { .container { padding: 20px; } .card-grid { grid-template-columns: 1fr; } .section { margin-bottom: 28px; } }
+  @media (max-width: 600px) { .container { padding: 12px; } .header { padding: 12px 14px; } .header h1 { font-size: 16px; } .section-title { font-size: 18px; } .section-title .emoji { font-size: 20px; } .card { padding: 14px; } .card-title { font-size: 14px; } .card-desc { font-size: 13px; } .card-trending { gap: 12px; } .card-number { font-size: 20px; min-width: 28px; } .changelog { font-size: 12px; max-height: 120px; } .section { margin-bottom: 24px; } }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <h1>✦ Новости ИИ и Технологий</h1>
+    <span class="date">2026-07-01</span>
+  </div>
+</div>
+
+<div class="container">
+
+  
+  
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title"><span class="emoji">⭐</span>GitHub Trending (AI/ML)</div>
+      <span class="section-count">10</span>
+    </div>
+    <div class="card-grid single-col">
+      
+      <div class="card card-trending">
+        <div class="card-number">1</div>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:10px;">
+          <div class="card-title"><a href="https://github.com/msitarzewski/agency-agents" target="_blank" rel="noopener noreferrer">msitarzewski/agency-agents</a></div>
+          <div class="card-desc">Полноценное ИИ-агентство у вас под рукой — от мастеров фронтенда до ниндзя Reddit-сообществ, от генераторов креатива до проверяющих реальность. Каждый агент — специализированный эксперт со своим характером, процессами и проверенными результатами.</div>
+          <div class="card-comment">Поможет быстро собирать и тестировать специализированных AI-агентов для продуктовых, маркетинговых и инженерных задач.</div>
+          <div class="card-meta">
+            <span class="tag tag-neutral">Shell</span>
+            <span class="tag tag-blue">msitarzewski</span><span class="tag tag-blue">claude</span><span class="tag tag-blue">epowelljr</span>
+            <span class="stat">⭐ 121.5k</span>
+            <span class="stat" style="color:var(--green);">+1791 сегодня</span>
+            <span class="stat">🍴 19846</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card card-trending">
+        <div class="card-number">2</div>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:10px;">
+          <div class="card-title"><a href="https://github.com/hasaneyldrm/exercises-dataset" target="_blank" rel="noopener noreferrer">hasaneyldrm/exercises-dataset</a></div>
+          <div class="card-desc">The comprehensive dataset you are referring to is **hasaneyldrm/exercises-dataset**, a curated collection of **433 fitness exercises** designed for educational and research purposes.
+
+Each entry in this dataset includes the following fields:
+- **Name**: Full descriptive exercise name
+- **Category**: Primary muscle group targeted
+- **Target Muscle Group**: Specific target muscle
+- **Equipment**: Required equipment (or `body weight` for bodyweight exercises)
+- **Instructions**: Step-by-step instructions (available in English and Turkish)
+- **Thumbnail Image**: Static `.jpg` preview image
+- **Animation Video**: `.gif` animation showing the movement
+
+This dataset is distinct from other similar collections (such as the 1,300+ exercise dataset on Kaggle or the 1,500+ ExerciseDB Pro) and is specifically noted for its focused scope of 433 exercises with rich multimedia support.
+
+You can find the dataset on GitHub:  
+🔗 [hasaneyldrm/exercises-dataset](https://github.com/hasaneyldrm/exercises-dataset)
+
+It is also tracked by GitHub trending stats and insights via Trendshift:  
+🔗 [Trendshift Repository Stats](https://trendshift.io/repositories/66951)</div>
+          <div class="card-comment">Репозиторий полезен для обучения мультимодальных моделей распознаванию упражнений по текстовым инструкциям, изображениям и GIF-анимациям.</div>
+          <div class="card-meta">
+            <span class="tag tag-neutral">HTML</span>
+            <span class="tag tag-blue">hasaneyldrm</span><span class="tag tag-blue">claude</span><span class="tag tag-blue">anderboski</span>
+            <span class="stat">⭐ 7.5k</span>
+            <span class="stat" style="color:var(--green);">+1343 сегодня</span>
+            <span class="stat">🍴 869</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card card-trending">
+        <div class="card-number">3</div>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:10px;">
+          <div class="card-title"><a href="https://github.com/simplex-chat/simplex-chat" target="_blank" rel="noopener noreferrer">simplex-chat/simplex-chat</a></div>
+          <div class="card-desc">SimpleX — первая сеть обмена сообщениями, работающая без каких-либо идентификаторов пользователей, — 100% конфиденциальность по замыслу! Приложения для iOS, Android и компьютеров 📱!</div>
+          <div class="card-comment">Полезен для разработки приватных AI-ассистентов и безопасных каналов обмена данными без пользовательских идентификаторов.</div>
+          <div class="card-meta">
+            <span class="tag tag-neutral">Haskell</span>
+            <span class="tag tag-blue">epoberezkin</span><span class="tag tag-blue">spaced4ndy</span><span class="tag tag-blue">avently</span>
+            <span class="stat">⭐ 17.5k</span>
+            <span class="stat" style="color:var(--green);">+1235 сегодня</span>
+            <span class="stat">🍴 1015</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card card-trending">
+        <div class="card-number">4</div>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:10px;">
+          <div class="card-title"><a href="https://github.com/xbtlin/ai-berkshire" target="_blank" rel="noopener noreferrer">xbtlin/ai-berkshire</a></div>
+          <div class="card-desc">Berkshire эпохи ИИ: исследовательский фреймворк для стоимостного инвестирования на базе Claude Code / Codex. Методологии четырёх мастеров — Баффета, Мангера, Дуань Юнпина и Ли Лу — плюс параллельное исследование с несколькими агентами и состязательный анализ.</div>
+          <div class="card-comment">Помогает строить многоагентные LLM-пайплайны для исследовательского анализа, оценки гипотез и принятия решений на финансовых данных.</div>
+          <div class="card-meta">
+            <span class="tag tag-neutral">Python</span>
+            <span class="tag tag-blue">claude</span><span class="tag tag-blue">xbtlin</span><span class="tag tag-blue">mvanhorn</span>
+            <span class="stat">⭐ 7.8k</span>
+            <span class="stat" style="color:var(--green);">+969 сегодня</span>
+            <span class="stat">🍴 990</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card card-trending">
+        <div class="card-number">5</div>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:10px;">
+          <div class="card-title"><a href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer">obra/superpowers</a></div>
+          <div class="card-desc">Фреймворк агентных навыков и методология разработки программного обеспечения, которые работают.</div>
+          <div class="card-comment">Поможет AI/ML инженеру систематизировать разработку агентных навыков и быстрее создавать надежные LLM-инструменты.</div>
+          <div class="card-meta">
+            <span class="tag tag-neutral">Shell</span>
+            <span class="tag tag-blue">obra</span><span class="tag tag-blue">claude</span><span class="tag tag-blue">arittr</span>
+            <span class="stat">⭐ 242.9k</span>
+            <span class="stat" style="color:var(--green);">+890 сегодня</span>
+            <span class="stat">🍴 21548</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card card-trending">
+        <div class="card-number">6</div>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:10px;">
+          <div class="card-title"><a href="https://github.com/ripienaar/free-for-dev" target="_blank" rel="noopener noreferrer">ripienaar/free-for-dev</a></div>
+          <div class="card-desc">Here is a curated list of **SaaS, PaaS, and IaaS offerings** with **free developer tiers** specifically of interest to **DevOps engineers, sysadmins, and infrastructure developers**. These services are organized by category and include key constraints (e.g., storage limits, API call caps, or bandwidth) to help you avoid surprise paywalls.
+
+---
+
+### 🌐 **Cloud Providers (IaaS/PaaS)**
+| Service | Free Tier Highlights | Constraints |
+|--------|----------------------|-------------|
+| **Oracle Cloud** | 2 VMs (1GB RAM each) | Free forever; enough for WordPress |
+| **Google Cloud** | 20+ always-free products + $300 credits | Credits expire; free products have rate limits |
+| **AWS** | Free tier for 12 months (EC2, S3, RDS, etc.) | Limited to specific instance types & regions |
+| **Azure** | Free services (SQL, Web App) for 12 months | Limited to specific SKUs |
+| **Cloudflare** | CDN, DDoS, SSL, Firewall, WAF | Free for unlimited domains; 1 rule/domain |
+
+---
+
+### 🚀 **CI/CD & Deployment**
+| Service | Free Tier Highlights | Constraints |
+|--------|----------------------|-------------|
+| **Vercel** | Hobby: 100GB bandwidth, 1M Edge invocations, 100 deploys/day | Personal use only; Pro: $20/seat/month |
+| **Netlify** | Free: 100GB bandwidth, 300 build mins, 125k serverless invocations | No commercial restriction; safer for portfolio/ads |
+| **Cloudflare Pages + Workers** | Unlimited bandwidth, 500 builds/month, 100k Worker requests/day | Free Workers plan |
+| **Supabase** | Free: 500MB DB, 1GB file storage, 50k auth users, 2 projects | Inactive projects pause after 7 days |
+| **Neon** | Free: 0.5GB per branch, autoscaling compute (scales to zero) | Full branching included |
+| **Turso** | Free: 9GB total storage across 500 DBs, 1B row reads/month | — |
+|</div>
+          <div class="card-comment">Помогает быстро находить бесплатную инфраструктуру для экспериментов, деплоя моделей, CI/CD и хранения данных без лишних затрат.</div>
+          <div class="card-meta">
+            <span class="tag tag-neutral">HTML</span>
+            <span class="tag tag-blue">ripienaar</span><span class="tag tag-blue">FatGrizzly</span><span class="tag tag-blue">Skxxtz</span>
+            <span class="stat">⭐ 127.4k</span>
+            <span class="stat" style="color:var(--green);">+742 сегодня</span>
+            <span class="stat">🍴 13320</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card card-trending">
+        <div class="card-number">7</div>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:10px;">
+          <div class="card-title"><a href="https://github.com/browser-use/video-use" target="_blank" rel="noopener noreferrer">browser-use/video-use</a></div>
+          <div class="card-desc">Редактируйте видео с помощью кодинговых агентов</div>
+          <div class="card-comment">Позволяет автоматизировать видеомонтаж кодовыми агентами, ускоряя подготовку датасетов, демо и мультимодальных AI-пайплайнов.</div>
+          <div class="card-meta">
+            <span class="tag tag-neutral">Python</span>
+            <span class="tag tag-blue">gregpr07</span><span class="tag tag-blue">claude</span><span class="tag tag-blue">antoinersx</span>
+            <span class="stat">⭐ 12.9k</span>
+            <span class="stat" style="color:var(--green);">+721 сегодня</span>
+            <span class="stat">🍴 1626</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card card-trending">
+        <div class="card-number">8</div>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:10px;">
+          <div class="card-title"><a href="https://github.com/HKUDS/Vibe-Trading" target="_blank" rel="noopener noreferrer">HKUDS/Vibe-Trading</a></div>
+          <div class="card-desc">«Вайб-трейдинг: ваш персональный торговый агент»</div>
+          <div class="card-comment">Полезен как пример построения LLM-агента для автоматизации трейдинга, интеграции рыночных данных и принятия решений.</div>
+          <div class="card-meta">
+            <span class="tag tag-neutral">Python</span>
+            <span class="tag tag-blue">warren618</span><span class="tag tag-blue">Teerapat-Vatpitak</span><span class="tag tag-blue">shadowinlife</span>
+            <span class="stat">⭐ 16.0k</span>
+            <span class="stat" style="color:var(--green);">+721 сегодня</span>
+            <span class="stat">🍴 2754</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card card-trending">
+        <div class="card-number">9</div>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:10px;">
+          <div class="card-title"><a href="https://github.com/altic-dev/FluidVoice" target="_blank" rel="noopener noreferrer">altic-dev/FluidVoice</a></div>
+          <div class="card-desc">Быстрее и единственный macOS-приложение для диктовки с распознаванием речи на устройстве (STT) и моделью улучшения на основе специально обученного искусственного интеллекта — локальная альтернатива Wispr Flow. Одна ⭐ отдаляет нас от цели на долгое время :)) Windows, iOS и Linux скоро появятся.</div>
+          <div class="card-comment">Полезен для изучения локального STT, оптимизации моделей на macOS и интеграции AI-улучшения диктовки в продукт.</div>
+          <div class="card-meta">
+            <span class="tag tag-neutral">Swift</span>
+            <span class="tag tag-blue">altic-dev</span><span class="tag tag-blue">grohith327</span><span class="tag tag-blue">claude</span>
+            <span class="stat">⭐ 5.1k</span>
+            <span class="stat" style="color:var(--green);">+588 сегодня</span>
+            <span class="stat">🍴 313</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card card-trending">
+        <div class="card-number">10</div>
+        <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:10px;">
+          <div class="card-title"><a href="https://github.com/usestrix/strix" target="_blank" rel="noopener noreferrer">usestrix/strix</a></div>
+          <div class="card-desc">Открытый инструмент для тестирования на проникновение с использованием ИИ, который помогает находить и устранять уязвимости вашего приложения.</div>
+          <div class="card-comment">Помогает AI/ML инженеру автоматизировать поиск уязвимостей в приложениях и безопасно интегрировать ИИ-агентов в процессы тестирования.</div>
+          <div class="card-meta">
+            <span class="tag tag-neutral">Python</span>
+            <span class="tag tag-blue">0xallam</span><span class="tag tag-blue">claude</span><span class="tag tag-blue">bearsyankees</span>
+            <span class="stat">⭐ 28.4k</span>
+            <span class="stat" style="color:var(--green);">+515 сегодня</span>
+            <span class="stat">🍴 3140</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+  
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title"><span class="emoji">📦</span>Избранные репозитории — релизы</div>
+    </div>
+    
+    <div style="color: var(--text-secondary); font-size: 14px; padding: 8px 0;">
+      📊 Нет новых релизов в избранных репозиториях.
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title"><span class="emoji">🌐</span>Новые модели OpenRouter</div>
+    </div>
+    
+    <div style="color: var(--text-secondary); font-size: 14px; padding: 8px 0;">
+      📊 Новых моделей сегодня нет. Всего в каталоге: 338
+    </div>
+    
+    
+  </div>
+  
+
+  
+  
+  <div class="section">
+    <div class="section-header">
+      <div class="section-title"><span class="emoji">🧩</span>Рекомендуемые скиллы</div>
+      <span class="section-count">3</span>
+    </div>
+    <div class="card-grid">
+      
+      <div class="card card-skill">
+        <div class="card-title"><a href="https://github.com/nousresearch/hermes-agent/tree/main/skills/reference-doc-page" target="_blank" rel="noopener noreferrer">reference-doc-page</a></div>
+        <div class="card-desc">В сессии 20260607_101635 пользователь проводил глубокое сравнение MemPalace vs AgentMemory — скилл reference-doc-page позволяет создавать структурированные HTML-страницы документации (API docs, feature matrices, comparison tables) и мог бы автоматизировать оформление таких сравнений.</div>
+        
+        <div class="card-comment">Установка: hermes skills install official/reference-doc-page</div>
+        
+      </div>
+      
+      <div class="card card-skill">
+        <div class="card-title"><a href="https://github.com/nousresearch/hermes-agent/tree/main/skills/llm-wiki" target="_blank" rel="noopener noreferrer">llm-wiki</a></div>
+        <div class="card-desc">Паттерн сравнения технологий (MemPalace vs AgentMemory) и исследования AI-инструментов идеально подходит для построения базы знаний через Karpathy's LLM Wiki. Скилл llm-wiki позволяет создавать и запрашивать межсвязанные markdown-страницы — может накапливать знания о технологиях для будущих сессий.</div>
+        
+        <div class="card-comment">Установка: hermes skills install official/llm-wiki</div>
+        
+      </div>
+      
+      <div class="card card-skill">
+        <div class="card-title"><a href="https://github.com/nousresearch/hermes-agent/tree/main/skills/blogwatcher" target="_blank" rel="noopener noreferrer">blogwatcher</a></div>
+        <div class="card-desc">В cron-сессии 20260607_060009 (генерация дайджеста) используется web_search для сбора новостей. Скилл blogwatcher позволяет мониторить блоги и RSS/Atom-ленты — может дополнить дайджест автоматическим мониторингом конкретных источников (AI/ML блоги, Hermes releases).</div>
+        
+        <div class="card-comment">Установка: hermes skills install official/blogwatcher</div>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+
+</div>
+
+<div class="footer">
+  Сгенерировано OWL · 2026-07-01 · 13 элементов
+</div>
+
+</body>
+</html>
